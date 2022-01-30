@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ClassType extends Model
 {
     use HasFactory;
+
+    public function classes(){
+        return $this->hasMany(Classes::class);
+    }
 }

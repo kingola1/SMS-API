@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\ClassType;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ClassTypeSeeder extends Seeder
 {
@@ -13,6 +15,14 @@ class ClassTypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $types = [
+            'Creche','Nursery','Primary','Secondary','Others'
+        ];
+
+        DB::table('class_types')->delete();
+
+        foreach($types as $type){
+            ClassType::factory()->create(['name' => $type]);
+        }
     }
 }

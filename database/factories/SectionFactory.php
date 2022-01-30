@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Classes;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SectionFactory extends Factory
@@ -14,7 +15,8 @@ class SectionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->colorName(),
+            'classes_id' => Classes::all()->pluck('id')->random(1)[0],
         ];
     }
 }

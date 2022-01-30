@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     use HasFactory;
+
+    public function classes(){
+        return $this->belongsTo(Classes::class, 'classes_id');
+    }
+
 }

@@ -17,6 +17,7 @@ class CreateClassesTable extends Migration
             $table->id();
             $table->string('name',50);
 		    $table->foreignId('class_type_id')->constrained();
+            $table->boolean('combined')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

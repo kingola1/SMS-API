@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Section;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SectionSeeder extends Seeder
 {
@@ -13,6 +15,7 @@ class SectionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('sections')->delete(); 
+        Section::factory()->count(3)->create();
     }
 }
