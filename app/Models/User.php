@@ -45,6 +45,7 @@ class User extends Authenticatable
 
     public const USER_STATUS_ACTIVE = 1;
     public const USER_STATUS_SUSPENDED = 2;
+    public const USER_STATUS_INACTIVE = 3;
 
     public function role(){
         return $this->belongsTo(Role::class);
