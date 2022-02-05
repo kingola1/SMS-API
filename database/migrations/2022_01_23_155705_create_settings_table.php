@@ -18,6 +18,8 @@ class CreateSettingsTable extends Migration
             $table->string('key');
 		    $table->string('value');
 		    $table->string('display_name');
+		    $table->string('type')->default('text');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

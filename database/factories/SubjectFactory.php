@@ -13,8 +13,17 @@ class SubjectFactory extends Factory
      */
     public function definition()
     {
+        $subjects = [
+            'Mathematics', 
+            'English Studies',
+            'French'
+        ];
+
+        $subject = $this->faker->randomElement($subjects);
+
         return [
-            //
+            'name' => $subject,
+            'short_name' => substr($subject, 0,3),
         ];
     }
 }

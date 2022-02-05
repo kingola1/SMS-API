@@ -13,7 +13,7 @@ class CreateStudentSectionSessionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('student_section_sessions', function (Blueprint $table) {
+        Schema::create('students_sections_sessions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained();
             $table->foreignId('section_id')->constrained();

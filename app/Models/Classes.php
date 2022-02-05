@@ -25,7 +25,7 @@ class Classes extends Model
      *
      * @return boolean
      */
-    public function is_combined()
+    public function isCombined()
     {
         return (bool)$this->combined;
     }

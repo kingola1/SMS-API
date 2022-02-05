@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Session extends Model
 {
     use HasFactory;
+
+    public function exams(){
+        return $this->hasMany(Exam::class);
+    }
 }

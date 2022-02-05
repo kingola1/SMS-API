@@ -51,7 +51,27 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function admins(){
-        return $this->hasMany(Admin::class);
+    public function student(){
+        return $this->hasOne(Student::class);
+    }
+
+    public function teacher(){
+        return $this->hasOne(Teacher::class);
+    }
+
+    public function admin(){
+        return $this->hasOne(Admin::class);
+    }
+
+    public function isAdmin(){
+        return Role::find($this->role_id)->name == 'admin'? true : false;
+    }
+
+    public function isTeacher(){
+        return Role::find($this->role_id)->name == 'teacher'? true : false;
+    }
+
+    public function isStudent(){
+        return Role::find($this->role_id)->name == 'student'? true : false;
     }
 }
