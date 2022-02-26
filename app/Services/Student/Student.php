@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Students;
+namespace App\Services\Student;
 
 class Student {
     public function admitStudent(){

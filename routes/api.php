@@ -31,12 +31,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Api Version 1
 
-//Roles route
 Route::prefix('v1')->group(function () {
+    //Roles route
     Route::resource('roles', App\Http\Controllers\Api\RoleController::class);
-});
 
-//Users Route
-Route::prefix('v1')->group(function () {
+    //Users Route
     Route::resource('users', App\Http\Controllers\Api\UserController::class);
+
+    Route::resource('admins', App\Http\Controllers\Api\AdminController::class);
+
+
+
 });
