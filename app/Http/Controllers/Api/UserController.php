@@ -3,14 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\RoleResource;
-use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\Password;
-use Laravel\Sanctum\Sanctum;
-use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {

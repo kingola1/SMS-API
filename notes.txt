@@ -1,0 +1,5 @@
+Changes from previous version
+
+1. Classes migration has a new column: combined (to indicate that class should have a single section)
+2. Teachers migration has a new column: position_held (to indicate position held by teacher)
+3. Teachers migration has a new column: head (to indicate that teacher is headteacher)

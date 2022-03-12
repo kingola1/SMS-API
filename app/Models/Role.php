@@ -11,6 +11,14 @@ class Role extends Model
 
     protected $guarded = ['id'];
 
+    protected $role_map = [
+        'super' => 'super',
+        'admin' => 'admin',
+        'principal' => 'admin',
+        'teacher' => 'teacher',
+        'student' => 'student',
+    ];
+
     public function user(){
         $this->hasMany(User::class);
     }

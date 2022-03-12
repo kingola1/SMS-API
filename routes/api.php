@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Auth Routes
+Route::prefix('v1')->group(function () {
+    Route::post('login', [App\Http\Controllers\Api\AuthController::class, 'login'])->name('api.login') ;
+    Route::middleware('auth:sanctum')->get('logout', [App\Http\Controllers\Api\AuthController::class, 'logout'])->name('api.logout') ;
+});
+
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -23,12 +31,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Api Version 1
 
-//Roles route
 Route::prefix('v1')->group(function () {
+    //Roles route
     Route::resource('roles', App\Http\Controllers\Api\RoleController::class);
-});
 
-//Users Route
-Route::prefix('v1')->group(function () {
+    //Users Route
     Route::resource('users', App\Http\Controllers\Api\UserController::class);
+
+    Route::resource('admins', App\Http\Controllers\Api\AdminController::class);
+
+
+
 });

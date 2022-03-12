@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class State extends Model
 {
     use HasFactory;
+
+    public function lgas(){
+        return $this->hasMany(Lga::class);
+    }
+ 
 }

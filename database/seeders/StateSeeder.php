@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\State;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class StateSeeder extends Seeder
 {
@@ -13,6 +15,15 @@ class StateSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $states = [
+            'Abia', 'Adamawa', 'Akwa Ibom', 'Anambra', 'Bauchi', 'Bayelsa', 'Benue', 'Borno', 'Cross River', 'Delta', 'Ebonyi', 'Edo', 'Ekiti', 'Enugu', 'FCT', 'Gombe', 'Imo', 'Jigawa','Kaduna', 'Kano', 'Katsina', 'Kebbi', 'Kogi', 'Kwara', 'Lagos', 'Nasarawa', 'Niger', 'Ogun', 'Ondo', 'Osun', 'Oyo', 'Plateau', 'Rivers', 'Sokoto', 'Taraba', 'Yobe', 'Zamfara',
+        ]; 
+
+        DB::table('states')->delete();
+        foreach($states as $state){
+            State::factory()->create([
+                "name" => $state
+            ]);
+        }
     }
 }

@@ -13,8 +13,11 @@ class ClassTypeFactory extends Factory
      */
     public function definition()
     {
+        $types = [
+            'Creche','Nursery','Primary','Secondary','Others'
+        ];
         return [
-            //
+            'name' => $this->faker->randomElement($types)
         ];
     }
 }
