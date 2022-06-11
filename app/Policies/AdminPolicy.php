@@ -45,7 +45,7 @@ class AdminPolicy
      */
     public function create(User $user)
     {
-        //
+        // 
     }
 
     /**
