@@ -30,7 +30,7 @@ class AdminController extends Controller
     public function store (Request $request)
     {
         $this->authorize('create', Admin::class);
-        $admins = AdminManager::createAdmin($request);
+        $admins = AdminManager::createAdmin($request->all());
         return response()->json();
     }
 
@@ -42,7 +42,7 @@ class AdminController extends Controller
     public function show ($id)
     {
         $this->authorize('view', Admin::class);
-        $admins = AdminManager::showAdmins($id);
+        $admins = AdminManager::getAdmin($id);
         return response()->json($admins);
     }
 
@@ -53,7 +53,7 @@ class AdminController extends Controller
      * @param  string  $id
      * @return \Illuminate\Http\Response
      */
-    public function update ($id, $request)
+    public function update ($id, Request $request)
     {
         $this->authorize('update', Admin::class);
         $admins = AdminManager::updateAdmins($request, $id);
@@ -70,6 +70,6 @@ class AdminController extends Controller
     {
         $this->authorize('delete', Admin::class);
         $admins = AdminManager::deleteAdmins($request, $id);
-        return response()->json();
+        return response()->json($admins);
     }
 }

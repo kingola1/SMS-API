@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
@@ -24,7 +25,8 @@ class AdminSeeder extends Seeder
                     User::factory()
                             ->create([
                                 'role_id' => Role::firstWhere('name','admin')->id,
-                                'email' => 'admin@sms.com'
+                                'email' => 'admin@sms.com',
+                                'password' => Hash::make('password'),
                                 ])
                 )->create();
     }

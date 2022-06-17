@@ -3,6 +3,7 @@
 namespace App\Services\Admin;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminManager {
@@ -14,34 +15,31 @@ class AdminManager {
         return $admins;
     }
 
-    public static function createAdmin (Request $request)
+    public static function createAdmin ()
     {
-        $admins = Admin::create([
-            'name' => $request->input(),
-            'email' => $request->input(),
-            'password' => $request->input()
-        ]);
-        return response(201);
+        $admin = Admin::create([]);
+        return $admin;
     }
 
-    public static function showAdmins ($id)
+    public static function getAdmin ($id)
     {
         $admin = Admin::find($id);
         return $admin;
     }
 
-    public static function updateAdmins (Request $request, $id)
+    public static function updateAdmins ($id)
     {
         $admin = Admin::find($id);
-        $admin->updateAdmins($request->all());
-        return response($admin, 200);
+        return $admin;
     }
 
-    public static function deleteAdmins (Request $request, $id)
+    public static function deleteAdmins ($id)
     {
-        $admin = Admin::find($id);
-        $admin->deleteAdmins($request->delete());
-        return response($admin, 204);
+        $admin = Admin::find(User::find($id)->delete());
+        return $admin;
+
+        // $admin->deleteAdmins(delete());
+        // return $admin;
     }
     
 } 
